@@ -6,6 +6,9 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    //Propriedade adicionada para permitir a declaração
+    // de classes (MODEL) sem construtor
+    "strictPropertyInitialization": false,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,

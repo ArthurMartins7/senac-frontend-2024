@@ -1,16 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { CartasService } from '../../shared/service/cartas.service';
+import { Carta } from '../../shared/model/carta';
 
 //Entidade Carta
 //Depois será substituido por arquivo com a entidade
 
-export interface Carta {
-  id: number;
-  nome: String;
-  forca: number;
-  inteligencia: number;
-  velocidade: number;
-  dataCadastro: Date;
-}
+
 
 @Component({
   selector: 'app-carta-listagem',
@@ -21,15 +16,29 @@ export interface Carta {
 })
 export class CartaListagemComponent implements OnInit{
 
-  //Lista de cartas
-  public cartas: Carta[] = [
-    {id: 1, nome: 'Pelé', forca: 5, inteligencia: 5, velocidade: 5, dataCadastro: new Date()},
-    {id: 2, nome: 'Vilmar', forca: 5, inteligencia: 5, velocidade: 1, dataCadastro: new Date()},
-    {id: 3, nome: 'CR7', forca: 5, inteligencia: 3, velocidade: 4, dataCadastro: new Date()},
-  ];
+  public cartas: Carta[] = [];
 
-  constructor() {}
+
+  constructor(private CartasService: CartasService) {}
 
   ngOnInit(): void {
+    this.consultarTodasCartas();
+  }
+
+  private consultartodasCartas() {
+    this.CartasService.listarTodas().subscribe(
+      resultado => {
+        //Retorno bem sucedido da chamada HTTP
+        this.cartas = resultado
+      },
+      erro => {
+        // Retorno com erros da chamada HTTP
+
+        // TODO evoluir para mostrar a mensagem
+        // de erro ao usuário na tela
+        console.log('Erro ao consultar cartas', erro);
+      }
+
+    );
   }
 }
