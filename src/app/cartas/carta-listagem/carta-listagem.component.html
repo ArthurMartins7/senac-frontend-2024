@@ -1,0 +1,29 @@
+<!--Apresenta o conteúdo da váriavel 'cartas' fromatado em JSON
+
+<pre>{{cartas | json}}</pre>
+
+-->
+
+<div>
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Força</th>
+        <th>Velocidade</th>
+        <th>Inteligência</th>
+        <th>Cadastrada em:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let carta of cartas">
+        <td>{{ carta.nome}}</td>
+        <td>{{carta.forca}}</td>
+        <td>{{carta.velocidade}}</td>
+        <td>{{carta.inteligencia}}</td>
+        <td>{{carta.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
