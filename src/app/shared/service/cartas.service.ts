@@ -9,7 +9,7 @@ import { Carta } from '../model/carta';
 export class CartasService {
 
   //URL base da API de cartas
-  private readonly API = 'http://localhost:8080/senac-20241-backend-exemplos/rest/carta';
+  private readonly API = 'http://localhost:8080/senac-backend-20241-arthur.martins/rest/carta';
 
   constructor(private httpClient: HttpClient) { }
 

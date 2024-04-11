@@ -16,17 +16,19 @@ import { Carta } from '../../shared/model/carta';
 })
 export class CartaListagemComponent implements OnInit{
 
-  public cartas: Carta[] = [];
+  public cartas: Carta[] = [
+    
+  ];
 
 
-  constructor(private CartasService: CartasService) {}
+  constructor(private cartaService: CartasService) {}
 
   ngOnInit(): void {
     this.consultarTodasCartas();
   }
 
-  private consultartodasCartas() {
-    this.CartasService.listarTodas().subscribe(
+  private consultarTodasCartas() {
+    this.cartaService.listarTodas().subscribe(
       resultado => {
         //Retorno bem sucedido da chamada HTTP
         this.cartas = resultado
